@@ -9,7 +9,7 @@ const IssueTable = (props) => {
    
     return (
         <div>
-            <table>
+            <table className="bordered-table">
                 <thead>
                     <tr>
                         <th>ID</th>
