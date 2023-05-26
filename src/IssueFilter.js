@@ -1,7 +1,6 @@
 import { Component } from 'react';
 
 class IssueFilter extends Component {
-   
     render() { 
         return (
             <div>

@@ -26,16 +26,36 @@ const issues = [
 
 
 class IssueList extends Component {
-   
+  constructor(){
+    super();
+    this.state = {
+      issues: []
+    }
+  }
+  
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({issues: issues})
+    }, 500);
+  }
+
+  createIssue = (issue) => {
+    issue.id = this.state.issues.length + 1;
+    const newIssueArray = [...this.state.issues, issue];
+    this.setState({
+      issues: newIssueArray
+    });
+  }
+
     render() { 
         return (
             <div>
                 <h1>Issue Tracker</h1>
                 <IssueFilter />
                 <hr />
-                <IssueTable issues={issues}/>
+                <IssueTable issues={this.state.issues}/>
                 <hr />
-                <IssueAdd />
+                <IssueAdd createIssue={this.createIssue} />
             </div>
 
           );
